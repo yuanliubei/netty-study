@@ -29,6 +29,8 @@ public class NIOServer {
          *
          * 可以看出read中的byteBuffer就是accept中关联的byteBuffer
          */
+
+        //开启网络通道
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         Selector selector = Selector.open();
         //serverSocketChannel绑定端口
@@ -39,8 +41,9 @@ public class NIOServer {
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
         for(;;){
-            int selectTime = selector.select(1000);
-            if(0 == selectTime){
+            //阻塞1000毫秒，并在1000毫秒后返回结果
+            int selectResult = selector.select(1000);
+            if(0 == selectResult){
                 //表示没有事件发生
                 continue;
             }
