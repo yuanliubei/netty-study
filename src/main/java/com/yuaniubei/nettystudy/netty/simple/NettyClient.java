@@ -1,4 +1,4 @@
-package com.yuaniubei.nettystudy.netty;
+package com.yuaniubei.nettystudy.netty.simple;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
